@@ -1,304 +1,133 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>SkyTeam Handbook</title>
+<meta charset="UTF-8">
+<title>SkyTeam HandBook</title>
 <style>
-  :root{
-    --bg:#071022;
-    --card:#0f1724;
-    --muted:#9aa6bf;
-    --accent:#2ea6ff;
-    --good:#2ecc71;
-    --warn:#ffcc00;
-    --bad:#ff6b6b;
-    --glass: rgba(255,255,255,0.03);
-    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Segoe UI Mono", monospace;
+  body {
+    font-family: Arial, sans-serif;
+    background: #0b1220;
+    color: #e5eeff;
+    margin: 0;
+    padding: 0;
   }
-  html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial; background:
-    linear-gradient(180deg,#041025 0%, #071328 60%); color:#e6eef8;}
-  .container{max-width:1100px;margin:28px auto;padding:22px;}
-  header{display:flex;gap:16px;align-items:center;margin-bottom:18px}
-  .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,#0ea5e9,#6366f1);display:flex;align-items:center;justify-content:center;font-weight:800;color:white;font-size:22px;box-shadow:0 8px 30px rgba(2,6,23,0.55)}
-  h1{margin:0;font-size:20px}
-  p.lead{color:var(--muted);margin-top:6px;margin-bottom:8px}
-  .layout{display:grid;grid-template-columns:300px 1fr;gap:18px}
-  nav.card, section.card{background:var(--card);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 30px rgba(0,0,0,0.6)}
-  nav.card{position:sticky;top:20px;height:calc(100vh - 56px);overflow:auto}
-  nav ul{list-style:none;padding:0;margin:0}
-  nav li{margin:8px 0}
-  nav a{color:#cfe9ff;text-decoration:none;font-weight:600}
-  nav a.small{font-weight:400;color:var(--muted);font-size:13px}
-  section.card{min-height:400px;overflow:auto}
-  h2{margin-top:0}
-  .section{margin-bottom:18px}
-  pre {background:rgba(255,255,255,0.03);padding:12px;border-radius:8px;overflow:auto;font-family:var(--mono);font-size:13px}
-  code.inline{background:var(--glass);padding:4px 8px;border-radius:6px;color:var(--accent);font-weight:700}
-  .muted{color:var(--muted)}
-  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  table{width:100%;border-collapse:collapse}
-  td,th{padding:8px;border-top:1px dashed rgba(255,255,255,0.03);vertical-align:top}
-  th{color:var(--muted);text-align:left}
-  .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:#042033;text-decoration:none;font-weight:700}
-  .note{background:rgba(255,255,255,0.02);padding:10px;border-radius:8px;color:var(--muted);font-size:13px}
-  .kbd{background:#041018;border:1px solid rgba(255,255,255,0.03);padding:6px 8px;border-radius:6px;color:var(--muted);font-size:12px}
-  .copy{float:right;background:#0b1220;border:1px solid rgba(255,255,255,0.03);padding:6px;border-radius:6px;color:var(--muted);cursor:pointer;font-family:var(--mono);font-size:12px}
-  footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
-  .success{color:var(--good);font-weight:700}
-  .warn{color:var(--warn);font-weight:700}
-  .bad{color:var(--bad);font-weight:700}
-  @media (max-width:900px){.layout{grid-template-columns:1fr;}.logo{display:none}.container{padding:12px}}
+  .container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+  }
+  h1, h2 {
+    color: #38a6ff;
+  }
+  .card {
+    background: #111a2f;
+    padding: 18px;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+  code {
+    background: rgba(255,255,255,0.08);
+    padding: 4px 6px;
+    border-radius: 6px;
+  }
+  ul {
+    line-height: 1.6;
+  }
+  .note {
+    font-size: 14px;
+    color: #9ab1c9;
+  }
 </style>
 </head>
+
 <body>
-  <div class="container">
-    <header>
-      <div class="logo">ST</div>
-      <div>
-        <h1>SkyTeam Music Bot — Handbook</h1>
-        <p class="lead">Complete manual: setup, config, commands, DJ roles, logging, troubleshooting, and advanced tips. Save as <span class="kbd">handbook.html</span>.</p>
-      </div>
-    </header>
+<div class="container">
 
-    <div class="layout">
-      <nav class="card" aria-label="Contents">
-        <strong class="muted">Contents</strong>
-        <ul>
-          <li><a href="#intro">Introduction</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#files">Files & Structure</a></li>
-          <li><a href="#install">Installation (Ubuntu)</a></li>
-          <li><a href="#config">config.json</a></li>
-          <li><a href="#dj">DJ Roles & Permissions</a></li>
-          <li><a href="#commands">Commands</a></li>
-          <li><a href="#playback">How Playback Works</a></li>
-          <li><a href="#logging">Logging</a></li>
-          <li><a href="#troubleshoot">Troubleshooting</a></li>
-          <li><a href="#advanced">Advanced</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#appendix">Appendix (Presets)</a></li>
-        </ul>
-        <div style="margin-top:14px">
-          <div class="note"><strong>Quick tip:</strong> Use <code class="inline">+setdjrole &lt;ROLE_ID&gt;</code> to enable DJ protection for commands.</div>
-        </div>
-      </nav>
+<h1>SkyTeam Music Bot — User Handbook</h1>
+<p class="note">A simple, easy guide on how to use the music bot — commands, DJ role, queue, FM presets, and more.</p>
 
-      <section class="card" id="main">
-        <article id="intro" class="section">
-          <h2>1. Introduction</h2>
-          <p>This handbook documents the SkyTeam Music Bot: a Discord music bot that supports YouTube search playback, download caching (keeps latest 20), per-server DJ role control, logging, and more.</p>
-        </article>
+<div class="card">
+<h2>📌 How to Play Music</h2>
+<ul>
+  <li>To play a song, use:<br><code>+play &lt;song name or YouTube URL&gt;</code></li>
+  <li>You can also use the shortcut:<br><code>+p &lt;song&gt;</code></li>
+  <li>If you type a name (example: <code>+p feel good</code>), the bot automatically searches YouTube and plays the first result.</li>
+  <li>If music is already playing, the song gets added to the queue.</li>
+</ul>
+</div>
 
-        <article id="features" class="section">
-          <h2>2. Features</h2>
-          <ul class="muted">
-            <li>Auto YouTube search & download when a search query is provided</li>
-            <li>Queue + presets (.fm stations)</li>
-            <li>DJ role per server (stored in <code class="inline">djroles.json</code>)</li>
-            <li>Playback logging to a configured channel</li>
-            <li>Auto cleanup keeping only latest <strong>20</strong> downloads</li>
-            <li>Auto-disconnect after 15 minutes of inactivity</li>
-            <li>Pause / Resume / Volume (1–100)</li>
-          </ul>
-        </article>
+<div class="card">
+<h2>🎶 FM Presets</h2>
+<p>You can play preset playlists called “FM Stations.”</p>
+<ul>
+  <li>Play a preset:<br><code>+fm 1</code></li>
+  <li>Presets may include playlists, chill stations, EDM mixes, etc.</li>
+  <li>Your server chooses what each preset contains.</li>
+</ul>
+</div>
 
-        <article id="files" class="section">
-          <h2>3. Files & Structure</h2>
-          <p class="muted">Place these files together in your bot folder:</p>
-          <pre><button class="copy" data-copy="index.js">Copy</button><code>index.js
-config.json
-djroles.json
-downloads/   (folder)
-handbook.html</code></pre>
+<div class="card">
+<h2>📋 Queue & Playback Controls</h2>
+<ul>
+  <li>See queue:<br><code>+queue</code> or <code>+q</code></li>
+  <li>See what’s currently playing:<br><code>+np</code></li>
+  <li>Skip a song:<br><code>+skip</code></li>
+  <li>Pause:<br><code>+pause</code></li>
+  <li>Resume:<br><code>+resume</code></li>
+  <li>Stop & clear:<br><code>+stop</code></li>
+  <li>Leave the VC instantly:<br><code>+leave</code></li>
+  <li>Change volume (1–100):<br><code>+vol 50</code></li>
+</ul>
+</div>
 
-          <p><strong>djroles.json</strong> — stores mapping of <code>guildId: roleId</code>. Start as an empty object:</p>
-          <pre><button class="copy" data-copy='{}'>Copy</button><code>{}</code></pre>
-        </article>
+<div class="card">
+<h2>🔒 DJ Role System</h2>
+<p>The server has a special DJ role that controls who can use music commands.</p>
+<ul>
+  <li>If you do NOT have the DJ role, you cannot use main music commands like play, skip, stop, etc.</li>
+  <li>If you DO have the DJ role — full control.</li>
+  <li>Admins ALWAYS bypass DJ restrictions.</li>
+</ul>
+<p class="note">If you can’t play a song, ask staff if you need the DJ role.</p>
+</div>
 
-        <article id="install" class="section">
-          <h2>4. Installation (Ubuntu)</h2>
-          <p class="muted">Install system prerequisites and yt-dlp / ffmpeg:</p>
-          <pre><button class="copy" data-copy="install-commands">Copy</button><code>sudo apt update
-sudo apt install -y ffmpeg python3 python3-pip
-pip3 install -U yt-dlp
-# Node.js (use Node 18+ or recommended 22+)
-# in your project folder:
-npm init -y
-npm install discord.js @discordjs/voice yt-dlp-wrap yt-search ytdl-core</code></pre>
-          <div class="note"><strong>Note:</strong> If your environment requires a different yt-dlp installation (like using a packaged executable), update the path in your bot code to point at the executable.</div>
-        </article>
+<div class="card">
+<h2>📜 Logging (Music History)</h2>
+<p>Every time someone plays a song, the bot logs it in a specific channel.</p>
+<ul>
+  <li>The log includes:
+    <ul>
+      <li>🎵 The YouTube video URL</li>
+      <li>👤 Who played it</li>
+      <li>🔗 A link to the message they used</li>
+    </ul>
+  </li>
+  <li>This helps staff see what was played, when, and by who.</li>
+</ul>
+</div>
 
-        <article id="config" class="section">
-          <h2>5. config.json (example)</h2>
-          <p class="muted">Create <code class="inline">config.json</code> in the bot folder:</p>
-          <pre><button class="copy" data-copy='{"token":"YOUR_BOT_TOKEN","prefix":"+","logChannel":"CHANNEL_ID","downloadFolder":"downloads","maxDownloads":20}'>Copy</button><code>{
-  "token": "YOUR_BOT_TOKEN",
-  "prefix": "+",
-  "logChannel": "LOG_CHANNEL_ID",
-  "downloadFolder": "downloads",
-  "maxDownloads": 20
-}</code></pre>
-          <p class="muted">Replace <code class="inline">YOUR_BOT_TOKEN</code> and <code class="inline">LOG_CHANNEL_ID</code>.</p>
-        </article>
+<div class="card">
+<h2>🗃️ Song Download System (Automatic)</h2>
+<p>You don’t need to do anything — the bot handles this automatically:</p>
+<ul>
+  <li>The bot downloads every song it plays for faster replay.</li>
+  <li>It keeps only the newest 20 downloads.</li>
+  <li>Older ones are auto-deleted to save space.</li>
+</ul>
+<p class="note">This system is invisible to users — it just makes the bot faster.</p>
+</div>
 
-        <article id="dj" class="section">
-          <h2>6. DJ Roles & Permissions</h2>
-          <p class="muted">Only people with the configured DJ role may run music commands. Admins always have override.</p>
-          <p>Set the DJ role (admin-only):</p>
-          <pre><button class="copy" data-copy="+setdjrole 123456789012345678">Copy</button><code>+setdjrole &lt;ROLE_ID&gt;</code></pre>
-          <p class="muted">This writes the mapping into <code class="inline">djroles.json</code> as <code>{ "guildId": "roleId" }</code>.</p>
-        </article>
+<div class="card">
+<h2>❓ Common Questions</h2>
+<ul>
+  <li><strong>“Why won’t it play?”</strong><br>Most likely you don’t have the DJ role.</li>
+  <li><strong>“Why did my song skip?”</strong><br>A DJ or admin skipped it.</li>
+  <li><strong>“Why didn’t it accept my text?”</strong><br>You must type an actual song name, not random text.</li>
+  <li><strong>“Can I add FM presets?”</strong><br>Only staff managing the bot can.</li>
+</ul>
+</div>
 
-        <article id="commands" class="section">
-          <h2>7. Commands (Reference)</h2>
-          <table>
-            <thead><tr><th>Command</th><th>What it does</th></tr></thead>
-            <tbody>
-              <tr>
-                <td><code class="inline">+play &lt;query|URL&gt;</code><br><span class="muted">alias: <code>+p</code></span></td>
-                <td>Searches YouTube if given a query, downloads the audio, adds to queue, and starts playback when possible.</td>
-              </tr>
-              <tr>
-                <td><code class="inline">+skip</code></td>
-                <td>Skip current track and play next.</td>
-              </tr>
-              <tr>
-                <td><code class="inline">+pause</code> / <code class="inline">+resume</code></td>
-                <td>Pause or resume playback.</td>
-              </tr>
-              <tr>
-                <td><code class="inline">+stop</code></td>
-                <td>Stop and clear queue.</td>
-              </tr>
-              <tr>
-                <td><code class="inline">+leave</code></td>
-                <td>Disconnect from voice channel immediately.</td>
-              </tr>
-              <tr>
-                <td><code class="inline">+queue</code> / <code class="inline">+q</code></td>
-                <td>Show queued tracks.</td>
-              </tr>
-              <tr>
-                <td><code class="inline">+np</code></td>
-                <td>Show the currently playing track.</td>
-              </tr>
-              <tr>
-                <td><code class="inline">+vol &lt;1-100&gt;</code></td>
-                <td>Adjust playback volume (1–100). Implementation may support fading.</td>
-              </tr>
-              <tr>
-                <td><code class="inline">+setdjrole &lt;roleID&gt;</code></td>
-                <td>Admin-only. Set server DJ role (stores in <code>djroles.json</code>).</td>
-              </tr>
-              <tr>
-                <td><code class="inline">+fm &lt;number&gt;</code></td>
-                <td>Load a preset playlist (if configured).</td>
-              </tr>
-            </tbody>
-          </table>
-        </article>
-
-        <article id="playback" class="section">
-          <h2>8. How Playback Works (technical)</h2>
-          <ol class="muted">
-            <li>Bot receives <code>+play</code> with a query or URL.</li>
-            <li>If query → YouTube search, take first result.</li>
-            <li>Use <code>yt-dlp</code> (or ytdl-core) to download audio to <code>downloads/</code>.</li>
-            <li>Create an audio resource from the downloaded file and play via <code>@discordjs/voice</code>.</li>
-            <li>Queue logic: when a track finishes, shift queue and play next.</li>
-            <li>Keep only <code>maxDownloads</code> latest files (configurable via <code>config.json</code>).</li>
-          </ol>
-        </article>
-
-        <article id="logging" class="section">
-          <h2>9. Logging</h2>
-          <p class="muted">When a song plays, the bot posts an entry in the channel configured via <code class="inline">config.logChannel</code>. Example message includes user, video URL, and a message link to the command that triggered playback.</p>
-          <p class="note"><strong>Make sure the configured channel ID is correct and the bot has permission to post there.</strong></p>
-        </article>
-
-        <article id="troubleshoot" class="section">
-          <h2>10. Troubleshooting</h2>
-
-          <h4>Problem: "not a valid URL" or yt-dlp errors</h4>
-          <p class="muted">If you pass a search term like <code>feel</code>, the bot should search YouTube. If it still tries to pass 'feel' to yt-dlp directly, your code's search fallback is broken — confirm the search step runs before download.</p>
-
-          <h4>Problem: "file argument must be of type string"</h4>
-          <p class="muted">This happens when you pass an object/stream where a file path string is expected by <code>spawn/execFile</code>. Fix by ensuring downloads use a file path string and you pass that string into <code>createAudioResource()</code> or to your ffmpeg spawn. Example: <code>createAudioResource('downloads/12345.mp3')</code>.</p>
-
-          <h4>Problem: Bot does not join or play</h4>
-          <ul class="muted">
-            <li>Make sure the bot has Connect & Speak permissions in the voice channel.</li>
-            <li>Ensure ffmpeg and yt-dlp are installed and accessible by your Node process.</li>
-            <li>Check Node version compatibility with @discordjs/voice — Node 18+ recommended (22+ ideal).</li>
-          </ul>
-
-          <h4>Uncaught write EPIPE errors</h4>
-          <p class="muted">EPIPE usually means a process writing to a pipe that closed (ffmpeg/yt-dlp died). Check child process spawn args and ensure programs exist and permissions are correct.</p>
-        </article>
-
-        <article id="advanced" class="section">
-          <h2>11. Advanced / Optional Features</h2>
-          <ul class="muted">
-            <li><strong>Volume fade</strong> — implement gradual gain changes with an FFmpeg filter or a wrapper around the audio resource.</li>
-            <li><strong>Persistent queue</strong> — store queued songs per-guild to a small database (JSON/SQLite).</li>
-            <li><strong>Web dashboard</strong> — control presets, DJ role, logs, and check current queue from a web UI.</li>
-            <li><strong>Slash commands</strong> — convert your text commands to modern Discord slash commands for better UX.</li>
-          </ul>
-        </article>
-
-        <article id="faq" class="section">
-          <h2>12. FAQ</h2>
-          <p><strong>Q:</strong> Why does the bot download files instead of piping? <br><strong>A:</strong> Downloads ensure smoother seek/retries, ability to archive, and stable conversion to a format Discord expects. If you prefer piping (streaming), implement streaming to ffmpeg directly and ensure the pipeline produces proper Opus for the voice library.</p>
-
-          <p><strong>Q:</strong> How long do downloads stay? <br><strong>A:</strong> Default is latest 20 files — older files are deleted automatically. Configure via <code>config.maxDownloads</code>.</p>
-        </article>
-
-        <article id="appendix" class="section">
-          <h2>13. Appendix — Preset Playlists</h2>
-          <p class="muted">You can define FM preset arrays inside your code. Example format:</p>
-          <pre><button class="copy" data-copy='[{"title":"Station 1 - Chill","url":"https://www.youtube.com/watch?v=EXAMPLE"}]'>Copy</button><code>[
-  {
-    "title": "Station 1 - Chill",
-    "url": "https://www.youtube.com/watch?v=EXAMPLE"
-  }
-]</code></pre>
-          <p class="muted">Trigger with <code class="inline">+p .fm1</code> (implementation in code required).</p>
-        </article>
-
-        <footer>
-          <p class="muted">Need this converted to a PDF or a Discord embed? I can generate it for you next. — Bigmac support</p>
-        </footer>
-      </section>
-    </div>
-  </div>
-
-<script>
-  // copy-to-clipboard for code blocks
-  document.querySelectorAll('.copy').forEach(btn => {
-    btn.addEventListener('click', async (e) => {
-      const val = btn.getAttribute('data-copy');
-      try {
-        await navigator.clipboard.writeText(val || btn.nextElementSibling.innerText);
-        btn.textContent = 'Copied ✓';
-        setTimeout(()=> btn.textContent = 'Copy', 1500);
-      } catch(err){
-        btn.textContent = 'Failed';
-        setTimeout(()=> btn.textContent = 'Copy', 1500);
-      }
-    });
-  });
-
-  // Make anchor scrolling smooth
-  document.querySelectorAll('nav a').forEach(a=>{
-    a.addEventListener('click', (e)=>{
-      e.preventDefault();
-      const id = a.getAttribute('href').slice(1);
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({behavior:'smooth', block: 'start'});
-    });
-  });
-</script>
+</div>
 </body>
 </html>
-
