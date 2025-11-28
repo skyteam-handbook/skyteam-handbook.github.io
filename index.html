@@ -1,133 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>SkyTeam HandBook</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #0b1220;
-    color: #e5eeff;
-    margin: 0;
-    padding: 0;
-  }
-  .container {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 20px;
-  }
-  h1, h2 {
-    color: #38a6ff;
-  }
-  .card {
-    background: #111a2f;
-    padding: 18px;
-    border-radius: 10px;
-    margin-bottom: 18px;
-    border: 1px solid rgba(255,255,255,0.05);
-  }
-  code {
-    background: rgba(255,255,255,0.08);
-    padding: 4px 6px;
-    border-radius: 6px;
-  }
-  ul {
-    line-height: 1.6;
-  }
-  .note {
-    font-size: 14px;
-    color: #9ab1c9;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Music Bot Command Handbook</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0e1117;
+      color: #e3e3e3;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #4ea1ff;
+    }
+    .cmd {
+      background: #1a1f29;
+      padding: 10px 15px;
+      border-left: 4px solid #4ea1ff;
+      margin-bottom: 10px;
+      border-radius: 4px;
+    }
+    code {
+      color: #8bd2ff;
+    }
+  </style>
 </head>
-
 <body>
-<div class="container">
 
-<h1>SkyTeam Music Bot — User Handbook</h1>
-<p class="note">A simple, easy guide on how to use the music bot — commands, DJ role, queue, FM presets, and more.</p>
+<h1>🎵 Music Bot – User Handbook</h1>
+<p>This guide explains how to use the music bot to play, control, and manage songs in your voice channel.</p>
 
-<div class="card">
-<h2>📌 How to Play Music</h2>
+<hr>
+
+<h2>📌 Getting Started</h2>
+<div class="cmd">
+  <strong>Join a Voice Channel</strong><br>
+  Before using any music command, make sure you are **in a voice channel**.  
+  The bot will join the same channel when you play a song.
+</div>
+
+<hr>
+
+<h2>▶️ Playing Music</h2>
+
+<div class="cmd">
+  <code>/play &lt;song name or YouTube link&gt;</code><br>
+  Plays a song in your voice channel.<br>
+  • You can paste a URL (YouTube, Spotify link if supported).<br>
+  • Or type a song name and the bot will search for it.
+</div>
+
+<div class="cmd">
+  <code>/search &lt;keywords&gt;</code><br>
+  Shows a list of matching songs you can choose from.
+</div>
+
+<div class="cmd">
+  <code>/nowplaying</code><br>
+  Shows the song currently playing + progress bar.
+</div>
+
+<hr>
+
+<h2>⏯ Playback Controls</h2>
+
+<div class="cmd">
+  <code>/pause</code><br>
+  Pauses the song.
+</div>
+
+<div class="cmd">
+  <code>/resume</code><br>
+  Resumes the paused song.
+</div>
+
+<div class="cmd">
+  <code>/skip</code><br>
+  Skips to the next song in the queue.
+</div>
+
+<div class="cmd">
+  <code>/stop</code><br>
+  Stops playback and clears the queue.
+</div>
+
+<div class="cmd">
+  <code>/seek &lt;time&gt;</code><br>
+  Jumps to a specific timestamp (example: <code>/seek 1:20</code>).
+</div>
+
+<hr>
+
+<h2>📜 Queue Commands</h2>
+
+<div class="cmd">
+  <code>/queue</code><br>
+  Shows the current song queue.
+</div>
+
+<div class="cmd">
+  <code>/remove &lt;position&gt;</code><br>
+  Removes a song from the queue (example: <code>/remove 3</code>).
+</div>
+
+<div class="cmd">
+  <code>/shuffle</code><br>
+  Randomizes the order of songs in the queue.
+</div>
+
+<hr>
+
+<h2>🔊 Volume</h2>
+
+<div class="cmd">
+  <code>/volume &lt;1–100&gt;</code><br>
+  Changes the bot’s playback volume.
+</div>
+
+<hr>
+
+<h2>🚪 Leaving</h2>
+
+<div class="cmd">
+  <code>/leave</code><br>
+  Makes the bot leave your voice channel.
+</div>
+
+<hr>
+
+<h2>❓ Tips</h2>
+
 <ul>
-  <li>To play a song, use:<br><code>+play &lt;song name or YouTube URL&gt;</code></li>
-  <li>You can also use the shortcut:<br><code>+p &lt;song&gt;</code></li>
-  <li>If you type a name (example: <code>+p feel good</code>), the bot automatically searches YouTube and plays the first result.</li>
-  <li>If music is already playing, the song gets added to the queue.</li>
+  <li>Make sure the bot has permission to join/speak in the channel.</li>
+  <li>If the bot doesn't play, try <code>/stop</code> then <code>/play</code> again.</li>
+  <li>Most issues happen when the bot is stuck — a <strong>reset command</strong> usually fixes it.</li>
 </ul>
-</div>
 
-<div class="card">
-<h2>🎶 FM Presets</h2>
-<p>You can play preset playlists called “FM Stations.”</p>
-<ul>
-  <li>Play a preset:<br><code>+fm 1</code></li>
-  <li>Presets may include playlists, chill stations, EDM mixes, etc.</li>
-  <li>Your server chooses what each preset contains.</li>
-</ul>
-</div>
-
-<div class="card">
-<h2>📋 Queue & Playback Controls</h2>
-<ul>
-  <li>See queue:<br><code>+queue</code> or <code>+q</code></li>
-  <li>See what’s currently playing:<br><code>+np</code></li>
-  <li>Skip a song:<br><code>+skip</code></li>
-  <li>Pause:<br><code>+pause</code></li>
-  <li>Resume:<br><code>+resume</code></li>
-  <li>Stop & clear:<br><code>+stop</code></li>
-  <li>Leave the VC instantly:<br><code>+leave</code></li>
-  <li>Change volume (1–100):<br><code>+vol 50</code></li>
-</ul>
-</div>
-
-<div class="card">
-<h2>🔒 DJ Role System</h2>
-<p>The server has a special DJ role that controls who can use music commands.</p>
-<ul>
-  <li>If you do NOT have the DJ role, you cannot use main music commands like play, skip, stop, etc.</li>
-  <li>If you DO have the DJ role — full control.</li>
-  <li>Admins ALWAYS bypass DJ restrictions.</li>
-</ul>
-<p class="note">If you can’t play a song, ask staff if you need the DJ role.</p>
-</div>
-
-<div class="card">
-<h2>📜 Logging (Music History)</h2>
-<p>Every time someone plays a song, the bot logs it in a specific channel.</p>
-<ul>
-  <li>The log includes:
-    <ul>
-      <li>🎵 The YouTube video URL</li>
-      <li>👤 Who played it</li>
-      <li>🔗 A link to the message they used</li>
-    </ul>
-  </li>
-  <li>This helps staff see what was played, when, and by who.</li>
-</ul>
-</div>
-
-<div class="card">
-<h2>🗃️ Song Download System (Automatic)</h2>
-<p>You don’t need to do anything — the bot handles this automatically:</p>
-<ul>
-  <li>The bot downloads every song it plays for faster replay.</li>
-  <li>It keeps only the newest 20 downloads.</li>
-  <li>Older ones are auto-deleted to save space.</li>
-</ul>
-<p class="note">This system is invisible to users — it just makes the bot faster.</p>
-</div>
-
-<div class="card">
-<h2>❓ Common Questions</h2>
-<ul>
-  <li><strong>“Why won’t it play?”</strong><br>Most likely you don’t have the DJ role.</li>
-  <li><strong>“Why did my song skip?”</strong><br>A DJ or admin skipped it.</li>
-  <li><strong>“Why didn’t it accept my text?”</strong><br>You must type an actual song name, not random text.</li>
-  <li><strong>“Can I add FM presets?”</strong><br>Only staff managing the bot can.</li>
-</ul>
-</div>
-
-</div>
 </body>
 </html>
