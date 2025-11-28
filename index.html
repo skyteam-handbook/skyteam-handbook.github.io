@@ -1,142 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Music Bot Command Handbook</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #0e1117;
-      color: #e3e3e3;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    h1, h2 {
-      color: #4ea1ff;
-    }
-    .cmd {
-      background: #1a1f29;
-      padding: 10px 15px;
-      border-left: 4px solid #4ea1ff;
-      margin-bottom: 10px;
-      border-radius: 4px;
-    }
-    code {
-      color: #8bd2ff;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Music Bot Handbook</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body {
+    font-family: "Inter", Arial, sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+    padding: 0;
+    color: #1a1a1a;
+  }
+
+  header {
+    background: #1f2937;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 36px;
+    margin: 0;
+    font-weight: 700;
+  }
+
+  p.subtitle {
+    font-size: 18px;
+    opacity: 0.8;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+  }
+
+  .section {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  }
+
+  .section h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    color: #111827;
+  }
+
+  .cmd {
+    font-family: monospace;
+    background: #e5e7eb;
+    padding: 6px 10px;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 4px 0;
+  }
+
+  ul {
+    margin: 15px 0 0 20px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 30px;
+    color: #6b7280;
+  }
+</style>
 </head>
 <body>
 
-<h1>🎵 Music Bot – User Handbook</h1>
-<p>This guide explains how to use the music bot to play, control, and manage songs in your voice channel.</p>
+<header>
+  <h1>Music Bot User Handbook</h1>
+  <p class="subtitle">A simple guide to playing music in your server</p>
+</header>
 
-<hr>
+<div class="container">
 
-<h2>📌 Getting Started</h2>
-<div class="cmd">
-  <strong>Join a Voice Channel</strong><br>
-  Before using any music command, make sure you are **in a voice channel**.  
-  The bot will join the same channel when you play a song.
+  <div class="section">
+    <h2>Getting Started</h2>
+    <p>The bot plays music from YouTube using simple commands. Make sure the bot is in a voice channel before using music commands.</p>
+  </div>
+
+  <div class="section">
+    <h2>Joining & Leaving</h2>
+    <p><span class="cmd">+join</span> — Makes the bot join your current voice channel.</p>
+    <p><span class="cmd">+leave</span> — Disconnects the bot and clears the queue.</p>
+  </div>
+
+  <div class="section">
+    <h2>Playing Music</h2>
+    <p><span class="cmd">+play &lt;song name or URL&gt;</span></p>
+    <ul>
+      <li>Plays a YouTube song by name or link.</li>
+      <li>If music already plays, the song is added to the queue.</li>
+      <li>Example: <span class="cmd">+play feel good inc</span></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Playback Controls</h2>
+    <p><span class="cmd">+pause</span> — Pauses the current song.</p>
+    <p><span class="cmd">+resume</span> — Resumes paused music.</p>
+    <p><span class="cmd">+skip</span> — Skips to the next song in the queue.</p>
+  </div>
+
+  <div class="section">
+    <h2>Viewing the Queue</h2>
+    <p><span class="cmd">+queue</span></p>
+    <ul>
+      <li>Shows all songs currently waiting to play.</li>
+      <li>Shows the now-playing track.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Tips</h2>
+    <ul>
+      <li>You can paste full YouTube URLs.</li>
+      <li>You can search songs by name.</li>
+      <li>Skipping automatically starts the next track if one exists.</li>
+    </ul>
+  </div>
+
 </div>
 
-<hr>
-
-<h2>▶️ Playing Music</h2>
-
-<div class="cmd">
-  <code>/play &lt;song name or YouTube link&gt;</code><br>
-  Plays a song in your voice channel.<br>
-  • You can paste a URL (YouTube, Spotify link if supported).<br>
-  • Or type a song name and the bot will search for it.
-</div>
-
-<div class="cmd">
-  <code>/search &lt;keywords&gt;</code><br>
-  Shows a list of matching songs you can choose from.
-</div>
-
-<div class="cmd">
-  <code>/nowplaying</code><br>
-  Shows the song currently playing + progress bar.
-</div>
-
-<hr>
-
-<h2>⏯ Playback Controls</h2>
-
-<div class="cmd">
-  <code>/pause</code><br>
-  Pauses the song.
-</div>
-
-<div class="cmd">
-  <code>/resume</code><br>
-  Resumes the paused song.
-</div>
-
-<div class="cmd">
-  <code>/skip</code><br>
-  Skips to the next song in the queue.
-</div>
-
-<div class="cmd">
-  <code>/stop</code><br>
-  Stops playback and clears the queue.
-</div>
-
-<div class="cmd">
-  <code>/seek &lt;time&gt;</code><br>
-  Jumps to a specific timestamp (example: <code>/seek 1:20</code>).
-</div>
-
-<hr>
-
-<h2>📜 Queue Commands</h2>
-
-<div class="cmd">
-  <code>/queue</code><br>
-  Shows the current song queue.
-</div>
-
-<div class="cmd">
-  <code>/remove &lt;position&gt;</code><br>
-  Removes a song from the queue (example: <code>/remove 3</code>).
-</div>
-
-<div class="cmd">
-  <code>/shuffle</code><br>
-  Randomizes the order of songs in the queue.
-</div>
-
-<hr>
-
-<h2>🔊 Volume</h2>
-
-<div class="cmd">
-  <code>/volume &lt;1–100&gt;</code><br>
-  Changes the bot’s playback volume.
-</div>
-
-<hr>
-
-<h2>🚪 Leaving</h2>
-
-<div class="cmd">
-  <code>/leave</code><br>
-  Makes the bot leave your voice channel.
-</div>
-
-<hr>
-
-<h2>❓ Tips</h2>
-
-<ul>
-  <li>Make sure the bot has permission to join/speak in the channel.</li>
-  <li>If the bot doesn't play, try <code>/stop</code> then <code>/play</code> again.</li>
-  <li>Most issues happen when the bot is stuck — a <strong>reset command</strong> usually fixes it.</li>
-</ul>
+<footer>
+  Music Bot Handbook © 2025
+</footer>
 
 </body>
 </html>
+
